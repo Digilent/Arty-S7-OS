@@ -1,0 +1,56 @@
+/include/ "system-conf.dtsi"
+/ {
+	chosen {
+		bootargs = "console=ttyUL0,115200 earlyprintk uio_pdrv_genirq.of_id=generic-uio";
+	};
+};
+
+&flash0 {
+	compatible = "s25fl128s";
+};
+
+&xadc_wiz_0 {
+	xlnx,channels {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		channelV@0 { /* V_P/V_N */
+			reg = <0>;
+		};
+		channelA0@1 { /* vaux0 */
+			reg = <1>;
+		};
+		channelA1@2 {
+			reg = <2>;
+		};
+		channelA3@3 {
+			reg = <3>;
+		};
+		channelA8A9@4 {
+			reg = <4>;
+		};
+		channelA6A7@9 {
+			reg = <9>;
+		};
+		channelA2@10 {
+			reg = <10>;
+		};
+		channelA4@11 {
+			reg = <11>;
+		};
+		channelA5@12 {
+			reg = <12>;
+		};
+	};
+};
+
+
+&PWM_0 {
+	compatible = "generic-uio";	
+};
+
+&axi_gpio_led {
+	compatible = "generic-uio";
+};
+&axi_gpio_input {
+	compatible = "generic-uio";
+};
